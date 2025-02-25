@@ -1,0 +1,36 @@
+body{
+    margin: 0 auto;
+    padding: 0;
+    background: url("ceu_estrelado.jpg")center/cover no-repeat;
+}
+main{
+    display: flex;
+    justify-content: center;
+
+}
+button{
+    margin-top: 200px;
+    background: linear-gradient(45deg, #41d3ff, #0010f3);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    width: 200px;
+    height: 200px;
+    background-color: dodgerblue;
+    border-radius: 100px;
+}
+button:hover {
+    transform: scale(1.1);
+    background: linear-gradient(45deg, #ff4b2b, #ff416c);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  }
+  button:active {
+    background: linear-gradient(45deg, #f32703, #e40606);
+    transform: scale(1);
+  }
