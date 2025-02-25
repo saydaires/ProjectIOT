@@ -11,7 +11,7 @@ led= Pin(21,Pin.OUT)
 import firebase_admin
 from firebase_admin import credentials, firestore
 
-# Inicialize as credenciais com o caminho para o seu arquivo JSON de chave de serviço
+
 cred = credentials.Certificate("caminho do certificado")
 firebase_admin.initialize_app(cred)
 
@@ -27,7 +27,7 @@ if doc.exists:
 else:
     print("Documento não encontrado!")
 
-# Exemplo 2: Recuperar todos os documentos de uma coleção
+
 usuarios_ref = db.collection("usuarios")
 docs = usuarios_ref.stream()
 
