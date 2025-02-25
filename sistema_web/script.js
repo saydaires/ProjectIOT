@@ -3,13 +3,13 @@ import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/10.7.1
 
   
   const firebaseConfig = {
-    apiKey: "SUA_API_KEY",
-    authDomain: "SEU_PROJETO.firebaseapp.com",
-    databaseURL: "https://SEU_PROJETO-default-rtdb.firebaseio.com",
-    projectId: "SEU_PROJETO",
-    storageBucket: "SEU_PROJETO.appspot.com",
-    messagingSenderId: "SEU_ID",
-    appId: "SUA_APP_ID"
+    apiKey: "AIzaSyCMOLltUbE2ji2Y9mddGf87L9fclkAD5Lg",
+    authDomain: "iotdatabase-6d965.firebaseapp.com",
+    databaseURL: "https://iotdatabase-6d965-default-rtdb.firebaseio.com/",
+    projectId: "iotdatabase-6d965",
+    storageBucket: "iotdatabase-6d965.firebasestorage.app",
+    messagingSenderId: "58423914373",
+    appId: "1:58423914373:web:037417f5fabfd4ee861eec"
   };
 
   
