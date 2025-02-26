@@ -1,41 +1,34 @@
 from machine import Pin
-from time import sleep 
+import time
 import network
-
-wlan = network.WLAN(network.WLAN.IF_STA)
-wlan.active(True)
-wlan.scan()
-wlan.isconnected()
-wlan.connect('ssid', 'key') #ssid e senha
-led= Pin(21,Pin.OUT)
-import firebase_admin
-from firebase_admin import credentials, firestore
+import urequests
+FIREBASE_URL = "https://iotdatabase-6d965-default-rtdb.firebaseio.com/" # Substitua pelo seu URL
+FIREBASE_SECRET = "AIzaSyCMOLltUbE2ji2Y9mddGf87L9fclkAD5Lg"  # Substitua pela sua chave do Firebase
 
 
-cred = credentials.Certificate("caminho do certificado")
-firebase_admin.initialize_app(cred)
+def conectar_wifi():
+    wlan = network.WLAN(network.STA_IF)
+    wlan.active(True)
+    wlan.connect('Wokwi-GUEST', '')
 
+    time.sleep(20)
+    if wlan.isconnected():
+        print("Conectado:", wlan.ifconfig())
+    else:
+        print("debug2") 
 
-db = firestore.client()
+#if wlan.isconnected():
+    #led= Pin(21,Pin.OUT)
 
-count_test
-doc_ref = db.collection("token")
-doc = doc_ref.get()
+    #while True:
+        #led.value(1)
+   
+def enviar_para_firebase(dado):
+    url = f"https://iotdatabase-6d965-default-rtdb.firebaseio.com//dados.json?auth=AIzaSyCMOLltUbE2ji2Y9mddGf87L9fclkAD5Lg"
+    resposta = urequests.patch(url, json=dado)
+    print("Resposta Firebase:", resposta.text)
+    resposta.close()
 
-if doc.exists:
-    print("Dados do documento:", doc.to_dict())
-else:
-    print("Documento não encontrado!")
-
-
-usuarios_ref = db.collection("usuarios")
-docs = usuarios_ref.stream()
-
-print("Documentos na coleção 'usuarios':")
-for documento in docs:
-    print(f"{documento.id} => {documento.to_dict()}")
-
-while True:
-    led.value(1)
-
-    
+# Exemplo de envio de dado
+conectar_wifi()
+enviar_para_firebase({"temperatura": 25, "umidade": 60})

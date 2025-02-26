@@ -27,7 +27,7 @@ import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/10.7.1
   }
 const button = document.getElementById("butaum");
 button.onclick= function(){
-    //enviarJSON(1);
+    enviarJSON(1);
    console.log("debug 1");
 }
 button.addEventListener("click",function() {
